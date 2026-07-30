@@ -12,9 +12,9 @@ import {
 } from 'remotion';
 
 const clips = [
-  {src: 'clips/clip1.mp4', label: '視線を止める、最初の1秒'},
-  {src: 'clips/clip2.mp4', label: '伝えたい瞬間だけを切り抜く'},
-  {src: 'clips/clip3.mp4', label: 'デザインで世界観を統一する'},
+  {src: 'clips/clip1.mp4', label: '伝説のデュエルが、\n始まる。'},
+  {src: 'clips/clip2.mp4', label: '熱き決闘者たち'},
+  {src: 'clips/clip3.mp4', label: '決闘（デュエル）だ！'},
 ];
 
 const Fade: React.FC<React.PropsWithChildren<{duration: number}>> = ({children, duration}) => {
@@ -55,14 +55,16 @@ const ClipScene: React.FC<{src: string; label: string; index: number}> = ({src, 
           bottom: 150,
           transform: `translateY(${(1 - intro) * 55}px)`,
           opacity: intro,
-          fontFamily: 'Noto Sans CJK JP, sans-serif',
+          fontFamily: "'Noto Sans CJK JP', 'IPAPGothic', 'IPAGothic', sans-serif",
           color: 'white',
         }}
       >
         <div style={{fontSize: 28, letterSpacing: 4, fontWeight: 700, color: '#FFD54A'}}>
-          0{index + 1} / DESIGN CUT
+          0{index + 1} / DUEL
         </div>
-        <div style={{fontSize: 70, lineHeight: 1.25, fontWeight: 900, marginTop: 18}}>{label}</div>
+        <div style={{fontSize: 70, lineHeight: 1.25, fontWeight: 900, marginTop: 18, whiteSpace: 'pre-line'}}>
+          {label}
+        </div>
       </div>
     </AbsoluteFill>
   );
@@ -75,10 +77,10 @@ const Hook: React.FC = () => {
   const line = interpolate(frame, [4, 24], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{backgroundColor: '#F3D347', padding: 72, justifyContent: 'center'}}>
-      <div style={{fontFamily: 'Noto Sans CJK JP, sans-serif', color: '#111', transform: `scale(${0.92 + scale * 0.08})`}}>
-        <div style={{fontSize: 32, fontWeight: 800, letterSpacing: 5}}>CLAUDE CODE × VIDEO</div>
+      <div style={{fontFamily: "'Noto Sans CJK JP', 'IPAPGothic', 'IPAGothic', sans-serif", color: '#111', transform: `scale(${0.92 + scale * 0.08})`}}>
+        <div style={{fontSize: 32, fontWeight: 800, letterSpacing: 5}}>遊戯王 デュエルモンスターズ</div>
         <div style={{fontSize: 105, fontWeight: 900, lineHeight: 1.03, marginTop: 42}}>
-          ただの切り抜きを、<br />作品に変える。
+          熱き<br />決闘者たち
         </div>
         <div style={{height: 14, backgroundColor: '#111', width: `${line * 100}%`, marginTop: 48}} />
       </div>
@@ -91,9 +93,9 @@ const EndCard: React.FC = () => {
   const y = interpolate(frame, [0, 24], [60, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
   return (
     <AbsoluteFill style={{backgroundColor: '#111', justifyContent: 'center', alignItems: 'center', padding: 76}}>
-      <div style={{fontFamily: 'Noto Sans CJK JP, sans-serif', color: 'white', textAlign: 'center', transform: `translateY(${y}px)`}}>
+      <div style={{fontFamily: "'Noto Sans CJK JP', 'IPAPGothic', 'IPAGothic', sans-serif", color: 'white', textAlign: 'center', transform: `translateY(${y}px)`}}>
         <div style={{fontSize: 30, color: '#FFD54A', fontWeight: 800, letterSpacing: 5}}>EDIT. DESIGN. EXPORT.</div>
-        <div style={{fontSize: 88, fontWeight: 900, lineHeight: 1.15, marginTop: 34}}>素材を差し替えるだけで、<br />縦動画が完成。</div>
+        <div style={{fontSize: 88, fontWeight: 900, lineHeight: 1.15, marginTop: 34}}>王道アニメの名曲を、<br />縦リールに。</div>
         <div style={{fontSize: 34, marginTop: 58, opacity: 0.7}}>1080 × 1920 / 15 sec / MP4</div>
       </div>
     </AbsoluteFill>

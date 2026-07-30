@@ -8,13 +8,13 @@
     "still": "remotion still src/index.ts ClaudeCodeReel out/preview.png --frame=180"
   },
   "dependencies": {
-    "@remotion/cli": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "remotion": "latest"
+    "@remotion/cli": "4.0.502",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.502"
   },
   "devDependencies": {
-    "@types/react": "latest",
-    "typescript": "latest"
+    "@types/react": "^19.0.0",
+    "typescript": "^5.6.3"
   }
 }
