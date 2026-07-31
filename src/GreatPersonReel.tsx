@@ -25,6 +25,8 @@ export type Person = {
   quoteEn: string;
   quoteJa: string;
   lessons: Lesson[];
+  hook?: string;
+  story?: string;
 };
 
 // ---- First entry in the "Lessons from Legends" series ----
@@ -41,10 +43,12 @@ export const FREDDIE: Person = {
     {t: '個性こそ最大の武器', d: '人と違う自分を、恐れない'},
     {t: '中途半端に生きるな', d: '一瞬に、全力を注ぎ込む'},
   ],
+  hook: '彼は、\n“普通”を拒んだ。',
+  story: 'ザンジバル生まれの移民の子。\n本名も、歯並びも気にした少年。\nそれでも、ステージでは無敵だった。',
 };
 
 // ---------- Shared animated background ----------
-const Background: React.FC = () => {
+export const Background: React.FC = () => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
   const drift = Math.sin(frame / 80) * 8;
@@ -93,7 +97,7 @@ const Background: React.FC = () => {
 };
 
 // persistent series ribbon
-const Ribbon: React.FC = () => (
+export const Ribbon: React.FC = () => (
   <div
     style={{
       position: 'absolute',
@@ -116,7 +120,7 @@ const Ribbon: React.FC = () => (
 );
 
 // word-by-word rise
-const Rise: React.FC<{text: string; size: number; delay?: number; color?: string; weight?: number}> = ({
+export const Rise: React.FC<{text: string; size: number; delay?: number; color?: string; weight?: number}> = ({
   text,
   size,
   delay = 0,
@@ -328,7 +332,7 @@ const End: React.FC<{person: Person}> = ({person}) => {
   );
 };
 
-const Fade: React.FC<React.PropsWithChildren<{d: number}>> = ({children, d}) => {
+export const Fade: React.FC<React.PropsWithChildren<{d: number}>> = ({children, d}) => {
   const frame = useCurrentFrame();
   const opacity = interpolate(frame, [0, 12, d - 12, d], [0, 1, 1, 0], {
     extrapolateLeft: 'clamp',

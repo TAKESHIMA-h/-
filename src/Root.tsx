@@ -3,6 +3,7 @@ import {Composition} from 'remotion';
 import {ClaudeCodeReel} from './Video';
 import {ScratchReel} from './ScratchReel';
 import {GreatPersonReel, FREDDIE} from './GreatPersonReel';
+import {GreatPersonReelStory} from './GreatPersonReelStory';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -26,6 +27,15 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="GreatPersonReel"
         component={GreatPersonReel}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{person: FREDDIE}}
+      />
+      <Composition
+        id="GreatPersonReelStory"
+        component={GreatPersonReelStory}
         durationInFrames={450}
         fps={30}
         width={1080}
